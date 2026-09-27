@@ -1,0 +1,223 @@
+/* ===================================================================
+   SiteFlow — design tokens
+   Three selectable themes (light / dark / blueprint) and a font
+   system are expressed entirely as CSS custom properties so that
+   the React hooks only ever need to toggle a couple of attributes
+   on <html>.
+
+   Visual language: technical site drawings, not SaaS-dashboard
+   default. Paper is cool limestone, not warm cream. The signature
+   accent is rebar-rust, not terracotta. Registration ticks
+   (.reg-mark) stand in for card shadows as the recurring device.
+=================================================================== */
+
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(13, 18, 15, 0.07);
+  --shadow-md: 0 8px 24px rgba(13, 18, 15, 0.14);
+  --shadow-lg: 0 20px 48px rgba(13, 18, 15, 0.22);
+
+  --font-heading: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-scale: 1;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ---------- Theme: light ("Site Paper") ---------- */
+:root,
+[data-theme="light"] {
+  --bg: #eaece0;
+  --bg-grid: rgba(18, 59, 79, 0.06);
+  --surface: #ffffff;
+  --surface-alt: #dfe2d2;
+  --surface-raised: #ffffff;
+  --text: #182019;
+  --text-muted: #5a6356;
+  --text-faint: #8b9484;
+  --border: #c7cbb6;
+  --accent: #bf4111;
+  --accent-contrast: #fdf3ec;
+  --accent-2: #12384f;
+  --success: #2e7d46;
+  --success-bg: #e2f0e4;
+  --warning: #a5710a;
+  --warning-bg: #f7ecd6;
+  --danger: #9c2a25;
+  --danger-bg: #f6e0dc;
+  --info: #275c78;
+  --info-bg: #dfeaf0;
+  color-scheme: light;
+}
+
+/* ---------- Theme: dark ("Site Night") ---------- */
+[data-theme="dark"] {
+  --bg: #12181a;
+  --bg-grid: rgba(127, 209, 224, 0.05);
+  --surface: #1b2225;
+  --surface-alt: #212a2d;
+  --surface-raised: #252f33;
+  --text: #eaf0ec;
+  --text-muted: #96a39b;
+  --text-faint: #67766e;
+  --border: #2c3639;
+  --accent: #e4712c;
+  --accent-contrast: #1c0e05;
+  --accent-2: #74c1da;
+  --success: #63bf87;
+  --success-bg: #16261e;
+  --warning: #dfab4c;
+  --warning-bg: #2c2312;
+  --danger: #dd7466;
+  --danger-bg: #2c1a17;
+  --info: #74b6d6;
+  --info-bg: #16242c;
+  color-scheme: dark;
+}
+
+/* ---------- Theme: blueprint (signature) ---------- */
+[data-theme="blueprint"] {
+  --bg: #0a3450;
+  --bg-grid: rgba(255, 255, 255, 0.07);
+  --surface: #0e4265;
+  --surface-alt: #0c3a5c;
+  --surface-raised: #124c73;
+  --text: #eaf3fa;
+  --text-muted: #a6c4da;
+  --text-faint: #77a0bd;
+  --border: #1c567c;
+  --accent: #e8834c;
+  --accent-contrast: #26150a;
+  --accent-2: #7fd1e0;
+  --success: #7fe0ab;
+  --success-bg: #0d4438;
+  --warning: #f2c94c;
+  --warning-bg: #453712;
+  --danger: #f2795a;
+  --danger-bg: #452019;
+  --info: #7fd1e0;
+  --info-bg: #0e3a4f;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(16px * var(--font-scale));
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Faint blueprint grid used behind hero / login surfaces */
+.grid-surface {
+  background-image:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+
+/* ---------------------------------------------------------------
+   Registration marks — the one recurring signature device, drawn
+   from corner ticks on a surveyed site drawing. Used in place of
+   drop shadows to mark a surface as "the important one" (hero
+   panels, the active stat, a modal). Apply to a positioned parent.
+----------------------------------------------------------------- */
+.reg-mark {
+  position: relative;
+}
+.reg-mark::before,
+.reg-mark::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.reg-mark::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+}
+.reg-mark::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+}

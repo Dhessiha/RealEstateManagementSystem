@@ -1,0 +1,38 @@
+.empty-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 48px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+}
+.empty-block__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  color: var(--accent-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+.empty-block__icon svg {
+  width: 22px;
+  height: 22px;
+}
+.empty-block h3 {
+  color: var(--text);
+  font-size: 1rem;
+}
+.empty-block p {
+  max-width: 420px;
+  font-size: 0.88rem;
+}
+.empty-block__action {
+  margin-top: 8px;
+}

@@ -1,0 +1,49 @@
+.status-table-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.status-table thead th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-alt);
+}
+
+.status-table tbody td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.status-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status-table tbody tr:hover {
+  background: var(--surface-alt);
+}
+
+.status-table__project-link {
+  font-weight: 600;
+  color: var(--text);
+}
+.status-table__project-link:hover {
+  color: var(--accent);
+}
+
+.status-table td .progress-bar {
+  min-width: 160px;
+}

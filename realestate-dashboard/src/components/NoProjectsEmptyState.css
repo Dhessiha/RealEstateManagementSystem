@@ -1,0 +1,28 @@
+.quick-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+}
+.quick-project-form input {
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+.quick-project-form input:focus {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 1px;
+}
+.quick-project-form .btn {
+  justify-content: center;
+  margin-top: 2px;
+}
+.quick-project-form__error {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin: -2px 0 0;
+}

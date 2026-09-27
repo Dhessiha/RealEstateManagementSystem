@@ -1,0 +1,36 @@
+.client-requests__filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.client-requests__filters select {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: inherit;
+  font-size: 0.85rem;
+}
+
+.client-requests__status-select {
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: inherit;
+  font-size: 0.78rem;
+  margin-right: 8px;
+}
+
+.client-requests__project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.client-requests__project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

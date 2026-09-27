@@ -1,0 +1,62 @@
+.role-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.chip--admin {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+.chip--engineer {
+  background: var(--info-bg);
+  color: var(--info);
+}
+.chip--client {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.team-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+}
+.team-remove:hover:not(:disabled) {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+.team-remove:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.team-created p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.team-created__note {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+.team-created__creds {
+  margin: 14px 0;
+  padding: 12px 14px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-alt);
+  font-size: 0.86rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

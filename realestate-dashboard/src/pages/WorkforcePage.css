@@ -1,0 +1,41 @@
+.workforce-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+.workforce-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.workforce-card svg {
+  color: var(--accent-2);
+  flex-shrink: 0;
+}
+.workforce-card strong {
+  display: block;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+.workforce-card span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+.workforce-card--accent {
+  background: var(--info-bg);
+  border-color: transparent;
+}
+.workforce-card--accent svg {
+  color: var(--info);
+}
+
+.table-subtext {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 500;
+  white-space: normal;
+}
